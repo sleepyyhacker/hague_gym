@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Haguegym - Fitness & Health Hub & Reformer Pilates Studio</title>
+    
+    <!-- Performance optimizations -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Preconnect for critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load elegant fonts - Premium Fitness -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="haguegym-styles.css">
+    
+    <!-- Critical CSS - Inline for fastest loading -->
+    <style>
+        /* Critical styles - Load immediately */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            font-family: 'Playfair Display', 'Crimson Text', 'Georgia', serif;
+        }
+        
+        /* Prevent horizontal scrolling on mobile */
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Ensure no element exceeds viewport width */
+        .content, .hero, .video-grid, .packages-container, .slideshow-wrapper, .portfolio-hero, .partners-section {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Font loading optimization to prevent layout shifts */
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('https://fonts.gstatic.com/s/playfairdisplay/v30/nuFiD-vYSZviVYUb_rj3ij__anPXDTnYh.woff2') format('woff2');
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Crimson Text';
+            src: url('https://fonts.gstatic.com/s/crimsontext/v19/wlp2gwHKFkZgtmSR3NB0oRJXGhH.woff2') format('woff2');
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2') format('woff2');
+            font-display: swap;
+        }
+        
+        /* Loading state */
+        .loading {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="loading">
+
+<!-- Floating Background Elements -->
+<div class="floating-shapes">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="bg-white shadow-md py-1 px-4 flex items-center justify-between fixed top-0 z-50">
+    <div class="header-container flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center logo">
+            <a href="index.html">
+                <div class="logo-placeholder">
+                    <span class="logo-text">HAGUEGYM</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Hamburger Button (Mobile only) -->
+        <button id="mobile-menu-button" class="md:hidden text-3xl focus:outline-none">
+            ☰
+        </button>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+            <ul class="flex space-x-8 font-semibold text-black">
+                <li><a href="index.html" class="nav-link active">HOME</a></li>
+                <li class="relative group">
+                    <a href="#services" class="dropdown-toggle nav-link">GYMS</a>
+                    <ul class="dropdown-menu absolute hidden group-hover:block bg-white shadow-lg rounded-lg py-3 mt-2 border border-gray-200 min-w-48">
+                        <li><a href="#services" class="block px-6 py-3 hover:bg-gray-50 text-gray-700">Haguegym</a></li>
+                        <li><a href="#reformer-pilates" class="block px-6 py-3 hover:bg-gray-50 text-gray-700">Reformer Pilates</a></li>
+                    </ul>
+                </li>
+                <li><a href="#services" class="nav-link">DIENSTEN</a></li>
+                <li><a href="#trainers" class="nav-link">TRAINERS</a></li>
+                <li><a href="#fysiotherapie" class="nav-link">FYSIOTHERAPIE</a></li>
+                <li><a href="#membership" class="nav-link">TARIEVEN</a></li>
+                <li><a href="#contact" class="nav-link">LOCATIE</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <a href="tel:+31612362218" class="text-black font-semibold hover:text-red-600 transition-colors">06 12 36 2218</a>
+                <a href="#contact" class="cta-button">JOIN NOW</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex-col mt-2 bg-white rounded-md shadow-lg border border-gray-200 px-4 py-4 space-y-3 text-black font-medium">
+        <a href="index.html" class="py-2 border-b border-gray-100">HOME</a>
+        <div class="py-2">
+            <span class="font-semibold text-gray-600">GYMS</span>
+            <a href="#services" class="block pl-4 py-1 text-sm text-gray-600">– Haguegym</a>
+            <a href="#reformer-pilates" class="block pl-4 py-1 text-sm text-gray-600">– Reformer Pilates</a>
+        </div>
+        <a href="#services" class="py-2 border-b border-gray-100">DIENSTEN</a>
+        <a href="#trainers" class="py-2 border-b border-gray-100">TRAINERS</a>
+        <a href="#fysiotherapie" class="py-2 border-b border-gray-100">FYSIOTHERAPIE</a>
+        <a href="#membership" class="py-2 border-b border-gray-100">TARIEVEN</a>
+        <a href="#contact" class="py-2 border-b border-gray-100">LOCATIE</a>
+        <div class="pt-3 space-y-2">
+            <a href="tel:+31612362218" class="block text-center py-2 text-red-600 font-semibold">06 12 36 2218</a>
+            <a href="#contact" class="cta-button w-full text-center">JOIN NOW</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Landing Page Hero Section -->
+<section id="hero" class="content">
+    <div class="landing-hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>Kies jouw fitness journey</span>
+            </div>
+            <h1 class="hero-title">WELKOM BIJ <span class="highlight graffiti-text" data-text="HAGUEGYM">HAGUEGYM</span></h1>
+            <p class="hero-subtitle">Ontdek onze twee unieke locaties en vind de perfecte training voor jou</p>
+        </div>
+        
+        <!-- Choice Cards -->
+        <div class="choice-cards">
+            <div class="choice-card gym-choice" onclick="scrollToSection('about')">
+                <div class="choice-image">
+                    <div class="image-placeholder gym-image"></div>
+                    <div class="choice-overlay">
+                        <div class="choice-number">01</div>
+                    </div>
+                </div>
+                <div class="choice-content">
+                    <h3 class="choice-title">FITNESS & HEALTH HUB</h3>
+                    <p class="choice-description">Oldskool gym met persoonlijke aandacht</p>
+                    <div class="choice-location">
+                        <span class="location-address">Weimarstraat 13, 2562 GN</span>
+                    </div>
+                    <div class="choice-cta">
+                        <span class="cta-text">Ontdek meer</span>
+                        <div class="cta-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="choice-card pilates-choice" onclick="scrollToSection('reformer-pilates')">
+                <div class="choice-image">
+                    <div class="image-placeholder pilates-image"></div>
+                    <div class="choice-overlay">
+                        <div class="choice-number">02</div>
+                    </div>
+                </div>
+                <div class="choice-content">
+                    <h3 class="choice-title">REFORMER PILATES</h3>
+                    <p class="choice-description">Bewustzijn van lichaam en geest</p>
+                    <div class="choice-location">
+                        <span class="location-address">Weimarstraat 55, 2562 GR</span>
+                    </div>
+                    <div class="choice-cta">
+                        <span class="cta-text">Ontdek meer</span>
+                        <div class="cta-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- About Section -->
+        <section id="about" class="content non-critical">
+            <div class="background-text">STRENGTH</div>
+            <h1 class="section-title">EEN <span class="highlight graffiti-text" data-text="GEZELLIGE">GEZELLIGE</span> KLEINE GYM MET PERSOONLIJKE AANDACHT</h1>
+    <p class="company-description" style="font-size: 1.3rem; font-weight: 500; text-align: center; max-width: 900px; margin: 0 auto 3rem auto; line-height: 1.8;"><strong>WAAR JE FITNESS JOURNEY BEGINT!</strong><br><br>Haguegym is niet zomaar een gym - het is jouw persoonlijke fitness sanctuary! Een plek waar iedereen zich thuis voelt, waar motivatie hoogtij viert, en waar resultaten meetbaar zijn. Niet een plek waar je naar toe moet, maar waar je naar toe WILT! Een oldskool buurtgym met moderne resultaten!</p>
+    
+    <div class="services-grid">
+        <div class="service-item">
+            <div class="service-icon">🏋️‍♂️</div>
+            <h3>Kracht Circuit</h3>
+            <p><strong>8 POWER MACHINES</strong> waar iedereen op een toegankelijke manier een explosieve full body workout kan doen!</p>
+        </div>
+        <div class="service-item">
+            <div class="service-icon">⚡</div>
+            <h3>45 Minuten Training</h3>
+            <p><strong>MAXIMALE RESULTATEN</strong> in minimale tijd! Nooit wachten, altijd trainen!</p>
+        </div>
+        <div class="service-item">
+            <div class="service-icon">👥</div>
+            <h3>Personal Training</h3>
+            <p><strong>PERSOONLIJKE AANDACHT</strong> in kleine groepen van max 4 mensen. Jouw programma, jouw resultaten!</p>
+        </div>
+        <div class="service-item">
+            <div class="service-icon">🌟</div>
+            <h3>Beginner tot Pro</h3>
+            <p><strong>VOOR IEDEREEN!</strong> Van beginner tot topsporter. Veilig trainen, maximale groei!</p>
+        </div>
+    </div>
+    <a href="#services" class="cta-button" style="margin-top: 40px;">START JOUW TRANSFORMATIE NU</a>
+</section>
+
+        <!-- Services Section -->
+        <section id="services" class="content non-critical">
+            <div class="background-text magenta">POWER</div>
+            <h1 class="section-title">WAT WE <span class="highlight graffiti-text" data-text="AANBIEDEN">AANBIEDEN</span></h1>
+    <div class="services-container">
+        <div class="service-card artsy-overlay high-contrast spray-effect">
+            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=350&fit=crop');"></div>
+            <div class="service-content">
+                <h3 class="graffiti-text" data-text="Kracht Circuit">Kracht Circuit</h3>
+                <p><strong>8 MACHINES IN DE IDEALE VOLGORDE</strong> waar iedereen op een toegankelijke manier een goede full body workout kan doen op zijn of haar eigen niveau. Je betaalt per maand en kan er onbeperkt gebruik van maken.</p>
+                <a href="#contact" class="service-btn">START NU</a>
+            </div>
+        </div>
+        <div class="service-card artsy-overlay high-contrast spray-effect">
+            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&h=350&fit=crop');"></div>
+            <div class="service-content">
+                <h3 class="graffiti-text" data-text="Personal Training">Personal Training</h3>
+                <p><strong>1 TRAINER OP MAX 4 KLANTEN</strong> De training wordt gegeven in een groep van maximaal 4 mensen. Iedereen traint individueel met een eigen programma op basis van zijn of haar eigen niveau en doelstellingen.</p>
+                <a href="#contact" class="service-btn">BOEK NU</a>
+            </div>
+        </div>
+        <div class="service-card artsy-overlay high-contrast spray-effect">
+            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=350&fit=crop');"></div>
+            <div class="service-content">
+                <h3 class="graffiti-text" data-text="45 MIN TRAINING">Ideaal voor een volledige training in korte tijd</h3>
+                <p><strong>FULL BODY KRACHTTRAINING IN 45 MINUTEN</strong> • 8 machines in de ideale volgorde • Nooit wachten op een machine • Voor beginner en gevorderde sporter • Minimale kans op blessures • Onbeperkt inplannen</p>
+                <a href="#contact" class="service-btn">START VANDAAG</a>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="#contact" class="cta-button">START JOUW TRAINING NU</a>
+    </div>
+</section>
+
+<!-- Reformer Pilates Section -->
+<section id="reformer-pilates" class="content non-critical" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="container">
+        <div class="pilates-hero">
+            <h1 class="section-title">REFORMER <span class="highlight">PILATES</span></h1>
+            <p class="pilates-subtitle">Werk aan een mooie, strakke, gebalanceerde houding</p>
+        </div>
+        
+        <div class="pilates-content">
+            <div class="pilates-info">
+                <div class="pilates-benefits">
+                    <h3>Wat we aanbieden</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">👥</div>
+                            <h4>Maximaal 6 personen</h4>
+                            <p>Kleine groepen voor persoonlijke aandacht</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🧠</div>
+                            <h4>Bewustzijn van lichaam en geest</h4>
+                            <p>Verbind je fysieke en mentale welzijn</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💪</div>
+                            <h4>Verbetering van spierkracht</h4>
+                            <p>Versterk je lichaam op een veilige manier</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <h4>Betere coördinatie</h4>
+                            <p>Verbeter je beheersing en stabiliteit</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🏥</div>
+                            <h4>Minder klachten</h4>
+                            <p>Verminder nek, hoofd en rugklachten</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📈</div>
+                            <h4>Level systeem</h4>
+                            <p>Van beginner (Level 1) tot gevorderd (Level 2)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pilates-instructor">
+                    <div class="instructor-content">
+                        <h3>Chee-Ling - 14 jaar ervaring</h3>
+                        <p><strong>Gecertificeerd STOTT Pilates Reformer instructeur</strong></p>
+                        <p>Tijdens mijn dansopleiding aan Codarts Rotterdam maakte ik voor het eerst kennis met Pilates. Na de dansacademie behaalde ik mijn Mat Pilates certificaat en startte ik mijn eigen Dansstudio in Oegstgeest.</p>
+                        <p>In 2023 begon ik met de STOTT Pilates Reformer opleiding en in 2024 startte ik de HAGUEGYM Reformer Pilates studio. Ik heb ervaren dat mensen door Pilates hun lichaam versterken en een betere houding krijgen.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pilates-pricing">
+                <h3>Prijzen Reformer Pilates</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-item">
+                        <h4>Single Class</h4>
+                        <div class="price">€30</div>
+                        <p>Eenmalige les</p>
+                    </div>
+                    <div class="pricing-item">
+                        <h4>2x Try-out</h4>
+                        <div class="price">€40</div>
+                        <p>1 maand geldig</p>
+                    </div>
+                    <div class="pricing-item">
+                        <h4>5 rittenkaart</h4>
+                        <div class="price">€135</div>
+                        <p>€27,50 per les<br>2 maanden geldig</p>
+                    </div>
+                    <div class="pricing-item">
+                        <h4>10 rittenkaart</h4>
+                        <div class="price">€250</div>
+                        <p>€25 per les<br>3 maanden geldig</p>
+                    </div>
+                    <div class="pricing-item">
+                        <h4>20 rittenkaart</h4>
+                        <div class="price">€450</div>
+                        <p>€22,50 per les<br>6 maanden geldig</p>
+                    </div>
+                    <div class="pricing-item">
+                        <h4>40 rittenkaart</h4>
+                        <div class="price">€800</div>
+                        <p>€20 per les<br>12 maanden geldig</p>
+                    </div>
+                </div>
+                <div class="private-sessions">
+                    <h4>Privé Sessies</h4>
+                    <div class="private-pricing">
+                        <div class="private-item">
+                            <span>Private class (1 persoon)</span>
+                            <span>€70</span>
+                        </div>
+                        <div class="private-item">
+                            <span>Duo class (2 personen)</span>
+                            <span>€100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pilates-cta">
+            <a href="#contact" class="cta-button">START MET TRY-OUT</a>
+            <a href="#contact" class="secondary-button" style="color: #1a1a1a;">BOEK EEN LES</a>
+        </div>
+    </div>
+</section>
+
+<!-- Membership Section -->
+<section id="membership" class="packages-section non-critical">
+    <h1 class="section-title" style="text-align: center; font-family: 'Archivo Black', sans-serif; font-size: 2.5vw; max-width: 800px;">
+        WELKE <span class="highlight">PAKKETEN</span> BIEDEN WE AAN?
+    </h1>
+    <div class="packages-container">
+        <div class="package-card featured">
+            <h3>Basis Abonnement</h3>
+            <div class="price">€60<span>/maand</span></div>
+            <ul class="package-features">
+                <li>12 maanden looptijd</li>
+                <li>Onbeperkt krachttraining + groepslessen</li>
+                <li>45 minuten = complete full body workout</li>
+                <li>6 maanden: €70 per maand</li>
+                <li>2 maanden: €80 per maand</li>
+            </ul>
+            <a href="#contact" class="package-button">START JOUW TRANSFORMATIE</a>
+        </div>
+        <div class="package-card">
+            <h3>Personal Training</h3>
+            <div class="price">€25<span>/training</span></div>
+            <ul class="package-features">
+                <li>1 trainer op max 4 klanten</li>
+                <li>16x trainen (looptijd 16 weken)</li>
+                <li>Trainen op afspraak</li>
+                <li>Krachttraining (focus op free weights)</li>
+                <li>Pakketprijs €400 voor 16 trainingen</li>
+                <li>In combinatie met basis abonnement</li>
+            </ul>
+            <a href="#contact" class="package-button">BOEK JOUW TRAINING</a>
+        </div>
+    </div>
+    <a href="#contact" class="cta-button" style="margin-top: 5vh; z-index: 3;">START JOUW FITNESS JOURNEY NU</a>
+</section>
+
+<!-- Process Section -->
+<section id="process" class="process-section" style="background-color: #f0f0f0;">
+    <h1 class="section-title" style="color: #272525; font-size: 2.5vw; max-width: 75vh; margin-bottom: 5%; text-align: center;">START JOUW FITNESS JOURNEY IN <span class="highlight">3 EENVOUDIGE STAPPEN</span></h1>
+    <div class="container text-center">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <h3>Boek Je Bezoek</h3>
+                <p><strong>GRATIS CONSULTATIE!</strong> Plan een gym tour en ontdek hoe wij jouw fitness doelen gaan bereiken!</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <h3>Kies Je Plan</h3>
+                <p><strong>PERFECTE MATCH!</strong> Selecteer het lidmaatschap dat het beste past bij jouw fitnessdoelen en budget. Wij helpen je kiezen!</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <h3>Start Met Trainen</h3>
+                <p><strong>JOUW TRANSFORMATIE BEGINT!</strong> Begin jouw fitness journey met onze expert begeleiding en ondersteuning. Resultaten gegarandeerd!</p>
+            </div>
+        </div>
+        <a href="#contact" class="timeline-button">START JOUW TRANSFORMATIE VANDAAG</a>
+    </div>
+</section>
+
+<!-- Trainers Section -->
+<section id="trainers" class="content non-critical">
+    <h1 class="section-title">PROFESSIONELE <span class="highlight">BEGELEIDING</span> VAN HET TEAM</h1>
+    <div class="trainers-container">
+        <div class="trainer-card">
+            <div class="trainer-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop');"></div>
+            <div class="trainer-content">
+                <h3>Julien</h3>
+                <p><strong>Founder, Personal trainer</strong></p>
+            </div>
+        </div>
+        <div class="trainer-card">
+            <div class="trainer-image" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=300&fit=crop');"></div>
+            <div class="trainer-content">
+                <h3>Aiko</h3>
+                <p><strong>Personal trainer</strong></p>
+            </div>
+        </div>
+        <div class="trainer-card">
+            <div class="trainer-image" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&h=300&fit=crop');"></div>
+            <div class="trainer-content">
+                <h3>Lucien</h3>
+                <p><strong>Personal trainer</strong></p>
+            </div>
+        </div>
+        <div class="trainer-card">
+            <div class="trainer-image" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=300&h=300&fit=crop');"></div>
+            <div class="trainer-content">
+                <h3>Nadia</h3>
+                <p><strong>Personal trainer</strong></p>
+            </div>
+        </div>
+        <div class="trainer-card">
+            <div class="trainer-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop');"></div>
+            <div class="trainer-content">
+                <h3>Caelum</h3>
+                <p><strong>Personal trainer</strong></p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="#contact" class="cta-button">BOEK EEN TRAINER</a>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="content non-critical">
+    <h1 class="section-title" style="color: black;">REACTIES VAN ONZE <span class="highlight">ENTHOUSIASTE</span> LEDEN</h1>
+    <div class="testimonials-carousel-nav">
+        <div class="testimonial-card">
+            <div class="testimonial-content">
+                <p>"De expertise van Julien is ongekend. Zelfs als ik vragen heb waar niet direct antwoord op is dan kan ik de volgende dag een appje verwachten met antwoorden op mijn moeilijke vragen."</p>
+                <div class="testimonial-author">
+                    <strong>Niqshal</strong>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-content">
+                <p>"Super fijne gym waar je je eigen "station" hebt met alles wat je nodig hebt voor je training, waardoor je niet eindeloos hoeft te wachten op je mede-sporters."</p>
+                <div class="testimonial-author">
+                    <strong>Jessica</strong>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-content">
+                <p>"Ik ben heel erg tevreden met de HagueGym. Julien is echt een top trainer en bovendien een heel aardige vent die je altijd met veel energie en een groot glimlach verwelkomt."</p>
+                <div class="testimonial-author">
+                    <strong>Paola</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="#contact" class="cta-button">WORD OOK LID</a>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="content non-critical">
+    <h1 class="section-title">VEEL GESTELDE <span class="highlight">VRAGEN</span></h1>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Moet ik trainen op een vaste dag en tijd?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Nee, het inplannen van je trainingen is flexibel. Je kan per training kiezen welke dag en tijd je komt. Vooruit plannen kan tot 2 weken vooruit.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Ik heb helemaal geen ervaring, is dat een probleem?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Zeker niet! Bij ons traint iedereen op zijn of haar eigen niveau. Dus van beginner tot topsporter.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Trainen er meer mannen of vrouwen in de gym?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>50/50 ongeveer. Misschien soms iets meer vrouwen.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Kan ik trainen met een blessure?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Zeker! Het programma en de oefeningen worden aangepast aan de blessure met als doel om van de blessure af te komen.</p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="#contact" class="cta-button">STEL JOUW VRAGEN</a>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact-section" class="contact-section non-critical" style="background: #1a1a1a;">
+    <div class="contact-left">
+        <h1>KLAAR OM TE STARTEN MET<br>JOUW FITNESS TRANSFORMATIE?</h1>
+        <p><strong>JOUW NIEUWE LEVEN WACHT!</strong> Neem vandaag nog contact met ons op en zet de eerste stap naar een gezonder, sterker en energieker leven!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                    <strong>Fitness & Health Hub</strong>
+                    <p>Weimarstraat 13, 2562 GN<br>Den Haag, Zuid-Holland</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                    <strong>Reformer Pilates Studio</strong>
+                    <p>Weimarstraat 55, 2562 GR<br>Den Haag, Zuid-Holland</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div>
+                    <strong>Telefoon</strong>
+                    <p>+31 (0) 6 123 62 218</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <div>
+                    <strong>Email</strong>
+                    <p>julienoosterbaan@gmail.com<br>haguegympilates@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🕒</span>
+                <div>
+                    <strong>Openingstijden</strong>
+                    <p>Ma. tm vr. 07:00-13:00 en 16:00-22:00<br>Za. tm zo. 08:00-14:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-right">
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Jouw Naam" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Jouw Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Jouw Telefoon">
+            </div>
+            <div class="form-group">
+                <select required>
+                    <option value="">Selecteer Dienst</option>
+                    <option value="fitness-hub">Fitness & Health Hub</option>
+                    <option value="reformer-pilates">Reformer Pilates</option>
+                    <option value="personal-training">Personal Training</option>
+                    <option value="membership">Lidmaatschap</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Vertel ons over jouw fitnessdoelen" rows="4"></textarea>
+            </div>
+            <button type="submit" class="submit-button">START JOUW TRANSFORMATIE NU</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Haguegym. Alle rechten voorbehouden. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Algemene Voorwaarden</a></p>
+</footer>
+
+<!-- JavaScript -->
+<script src="haguegym-script.js"></script>
+<script>
+// Smooth scrolling function
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Add smooth scrolling to all internal links
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for all anchor links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
